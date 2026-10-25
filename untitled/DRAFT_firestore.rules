@@ -1,0 +1,195 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net: Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Primitive Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function parentUserExists(userId) {
+      return exists(/databases/$(database)/documents/users/$(userId));
+    }
+
+    // Validation Blueprints
+    function isValidUserProfile(data, userId) {
+      return data.keys().hasAll(['uid', 'displayName', 'persona', 'grade', 'subject', 'theme', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['uid', 'displayName', 'persona', 'grade', 'subject', 'theme', 'createdAt', 'updatedAt'])
+        && data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 && data.uid == userId && data.uid == request.auth.uid
+        && data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 100
+        && data.persona is string && (data.persona == 'student' || data.persona == 'teacher')
+        && data.grade is string && data.grade.size() >= 1 && data.grade.size() <= 40
+        && data.subject is string && data.subject.size() >= 1 && data.subject.size() <= 80
+        && data.theme is string && (data.theme == 'dark' || data.theme == 'light')
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidSession(data, userId, sessionId) {
+      return data.keys().hasAll(['id', 'userId', 'title', 'role', 'classLevel', 'subject', 'payload', 'reasoningTokensTotal', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'userId', 'title', 'role', 'classLevel', 'subject', 'payload', 'reasoningTokensTotal', 'createdAt', 'updatedAt'])
+        && data.id is string && data.id.size() >= 1 && data.id.size() <= 128 && data.id == sessionId
+        && data.userId is string && data.userId.size() >= 1 && data.userId.size() <= 128 && data.userId == userId && data.userId == request.auth.uid
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 200
+        && data.role is string && (data.role == 'student' || data.role == 'teacher')
+        && data.classLevel is string && data.classLevel.size() >= 1 && data.classLevel.size() <= 40
+        && data.subject is string && data.subject.size() >= 1 && data.subject.size() <= 80
+        && data.payload is string && data.payload.size() >= 2 && data.payload.size() <= 200000
+        && data.reasoningTokensTotal is number && data.reasoningTokensTotal >= 0 && data.reasoningTokensTotal <= 10000000
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidSpec(data, userId, specId) {
+      return data.keys().hasAll(['id', 'userId', 'category', 'title', 'content', 'active', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'userId', 'category', 'title', 'content', 'active', 'createdAt', 'updatedAt'])
+        && data.id is string && data.id.size() >= 1 && data.id.size() <= 128 && data.id == specId
+        && data.userId is string && data.userId.size() >= 1 && data.userId.size() <= 128 && data.userId == userId && data.userId == request.auth.uid
+        && data.category is string && (
+          data.category == 'School Rules' ||
+          data.category == 'Current Syllabus' ||
+          data.category == 'Examination Pattern' ||
+          data.category == 'Competition Rules' ||
+          data.category == 'Teacher Instructions' ||
+          data.category == 'Student Learning Goals'
+        )
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 120
+        && data.content is string && data.content.size() >= 1 && data.content.size() <= 4000
+        && data.active is bool
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidQuizAttempt(data, userId, attemptId) {
+      return data.keys().hasAll(['id', 'userId', 'topic', 'subject', 'classLevel', 'difficulty', 'score', 'maxScore', 'accuracy', 'createdAt'])
+        && data.keys().hasOnly(['id', 'userId', 'topic', 'subject', 'classLevel', 'difficulty', 'score', 'maxScore', 'accuracy', 'createdAt'])
+        && data.id is string && data.id.size() >= 1 && data.id.size() <= 128 && data.id == attemptId
+        && data.userId is string && data.userId.size() >= 1 && data.userId.size() <= 128 && data.userId == userId && data.userId == request.auth.uid
+        && data.topic is string && data.topic.size() >= 1 && data.topic.size() <= 150
+        && data.subject is string && data.subject.size() >= 1 && data.subject.size() <= 80
+        && data.classLevel is string && data.classLevel.size() >= 1 && data.classLevel.size() <= 40
+        && data.difficulty is string && (
+          data.difficulty == 'Foundation' ||
+          data.difficulty == 'Competitive' ||
+          data.difficulty == 'Olympiad' ||
+          data.difficulty == 'Extreme Logic'
+        )
+        && data.score is number && data.score >= -100 && data.score <= 1000
+        && data.maxScore is number && data.maxScore >= 1 && data.maxScore <= 1000
+        && data.accuracy is number && data.accuracy >= 0 && data.accuracy <= 100
+        && data.createdAt is timestamp;
+    }
+
+    // Collection: /users/{userId}
+    match /users/{userId} {
+      allow get: if isOwner(userId) && isValidId(userId);
+      allow list: if false;
+      allow create: if isVerified()
+        && isOwner(userId)
+        && isValidId(userId)
+        && isValidUserProfile(incoming(), userId)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+      allow update: if isVerified()
+        && isOwner(userId)
+        && isValidId(userId)
+        && isValidUserProfile(incoming(), userId)
+        && incoming().uid == existing().uid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'persona', 'grade', 'subject', 'theme', 'updatedAt']);
+      allow delete: if isVerified() && isOwner(userId) && isValidId(userId);
+
+      // Subcollection: /users/{userId}/sessions/{sessionId}
+      match /sessions/{sessionId} {
+        allow get: if isOwner(userId) && isValidId(userId) && isValidId(sessionId) && parentUserExists(userId);
+        allow list: if isOwner(userId) && existing().userId == request.auth.uid;
+        allow create: if isVerified()
+          && isOwner(userId)
+          && isValidId(userId)
+          && isValidId(sessionId)
+          && isValidSession(incoming(), userId, sessionId)
+          && incoming().createdAt == request.time
+          && incoming().updatedAt == request.time
+          && parentUserExists(userId);
+        allow update: if isVerified()
+          && isOwner(userId)
+          && isValidId(userId)
+          && isValidId(sessionId)
+          && isValidSession(incoming(), userId, sessionId)
+          && incoming().id == existing().id
+          && incoming().userId == existing().userId
+          && incoming().createdAt == existing().createdAt
+          && incoming().updatedAt == request.time
+          && incoming().diff(existing()).affectedKeys().hasOnly(['title', 'role', 'classLevel', 'subject', 'payload', 'reasoningTokensTotal', 'updatedAt'])
+          && parentUserExists(userId);
+        allow delete: if isVerified() && isOwner(userId) && isValidId(userId) && isValidId(sessionId) && parentUserExists(userId);
+      }
+
+      // Subcollection: /users/{userId}/specs/{specId}
+      match /specs/{specId} {
+        allow get: if isOwner(userId) && isValidId(userId) && isValidId(specId) && parentUserExists(userId);
+        allow list: if isOwner(userId) && existing().userId == request.auth.uid;
+        allow create: if isVerified()
+          && isOwner(userId)
+          && isValidId(userId)
+          && isValidId(specId)
+          && isValidSpec(incoming(), userId, specId)
+          && incoming().createdAt == request.time
+          && incoming().updatedAt == request.time
+          && parentUserExists(userId);
+        allow update: if isVerified()
+          && isOwner(userId)
+          && isValidId(userId)
+          && isValidId(specId)
+          && isValidSpec(incoming(), userId, specId)
+          && incoming().id == existing().id
+          && incoming().userId == existing().userId
+          && incoming().createdAt == existing().createdAt
+          && incoming().updatedAt == request.time
+          && incoming().diff(existing()).affectedKeys().hasOnly(['category', 'title', 'content', 'active', 'updatedAt'])
+          && parentUserExists(userId);
+        allow delete: if isVerified() && isOwner(userId) && isValidId(userId) && isValidId(specId) && parentUserExists(userId);
+      }
+
+      // Subcollection: /users/{userId}/quizAttempts/{attemptId}
+      match /quizAttempts/{attemptId} {
+        allow get: if isOwner(userId) && isValidId(userId) && isValidId(attemptId) && parentUserExists(userId);
+        allow list: if isOwner(userId) && existing().userId == request.auth.uid;
+        allow create: if isVerified()
+          && isOwner(userId)
+          && isValidId(userId)
+          && isValidId(attemptId)
+          && isValidQuizAttempt(incoming(), userId, attemptId)
+          && incoming().createdAt == request.time
+          && parentUserExists(userId);
+        allow update: if false;
+        allow delete: if isVerified() && isOwner(userId) && isValidId(userId) && isValidId(attemptId) && parentUserExists(userId);
+      }
+    }
+  }
+}

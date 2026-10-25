@@ -1,0 +1,6 @@
+{
+  "name": "Jaipuria Medhavi — मेधावी",
+  "description": "The High-Logic AI Scholar & Pedagogical Intelligence Workspace for Seth M.R. Jaipuria School powered by NVIDIA Nemotron 3.5 Super VL via OpenRouter and Firebase Cloud Sync.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

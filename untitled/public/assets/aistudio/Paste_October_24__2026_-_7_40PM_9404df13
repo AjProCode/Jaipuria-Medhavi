@@ -1,0 +1,2177 @@
+# MASTER BUILD PROMPT — JAIPURIA MEDHAVI (मेधावी)
+
+## 0. ROLE, MINDSET & OBJECTIVE
+
+Act simultaneously as a:
+
+- **Principal UI/UX Architect**
+- **Award-Winning Product Designer**
+- **Senior Front-End Engineer**
+- **Educational Technology Architect**
+- **AI Interaction Designer**
+- **CBSE / ICSE / NEP-2020 Pedagogical Product Specialist**
+
+Your task is to design and build a **complete, highly polished, responsive, production-quality single-page web application** called:
+
+# **JAIPURIA MEDHAVI — मेधावी**
+
+### The High-Logic AI Scholar & Pedagogical Intelligence Workspace  
+for **Seth M.R. Jaipuria School**
+
+**Motto:**  
+*"Tamso Ma Jyotirgamaya"*  
+**Lead me from darkness to light.**
+
+This must NOT look like a generic ChatGPT clone, admin dashboard, SaaS template, or school ERP.
+
+It should feel like an entirely new category:
+
+> **An elite digital academic intelligence laboratory where traditional scholarly prestige meets futuristic AI reasoning.**
+
+The final application should feel worthy of being presented to:
+
+- school leadership
+- teachers
+- parents
+- students
+- academic competitions
+- education conferences
+- institutional showcases
+
+The experience should create a genuine **“wow” moment within the first five seconds**.
+
+---
+
+# 1. CORE DELIVERABLE
+
+Create a **fully functional single-file application**:
+
+```text
+index.html
+```
+
+The file must contain:
+
+- Semantic HTML5
+- Modern CSS3
+- Tailwind CSS via CDN if useful
+- Vanilla ES6+ JavaScript
+- SVG/CSS-generated visual elements
+- All modals
+- AI API logic
+- local state
+- history
+- quiz engine
+- multimodal uploads
+- response formatting
+- print/export layouts
+
+Do NOT require:
+
+- React
+- Vue
+- Angular
+- npm
+- webpack
+- a build step
+- a backend server
+
+The user should be able to save `index.html`, open it in a modern browser, enter an OpenRouter API key, and use the application.
+
+External CDN libraries may be used only where they significantly improve the product.
+
+Recommended optional libraries:
+
+- Tailwind CSS
+- Lucide Icons
+- Marked.js
+- Highlight.js
+- KaTeX
+- DOMPurify
+
+The application must still be architected cleanly even though everything resides in one HTML file.
+
+Organize JavaScript into clearly separated logical modules/functions.
+
+---
+
+# 2. AI MODEL & OPENROUTER INTEGRATION
+
+Connect directly to:
+
+```text
+https://openrouter.ai/api/v1/chat/completions
+```
+
+using:
+
+```text
+nvidia/nemotron-3.5-super-vl:free
+```
+
+The application must support:
+
+- text prompts
+- conversation history
+- images
+- diagrams
+- photographed questions
+- photographed handwritten answers
+- multimodal reasoning
+- role-aware system prompts
+- subject-aware context
+- grade-aware context
+- custom school specifications
+
+Use:
+
+```javascript
+fetch()
+```
+
+with appropriate:
+
+```http
+Authorization: Bearer USER_API_KEY
+Content-Type: application/json
+```
+
+Implement robust handling for:
+
+- invalid API keys
+- quota/rate limits
+- unavailable model
+- network failure
+- malformed responses
+- empty responses
+- API timeout
+- image upload errors
+
+Never hard-code an API key.
+
+---
+
+# 3. API KEY EXPERIENCE
+
+Create a polished:
+
+# 🔑 OpenRouter Cloud Connection Modal
+
+Allow the user to paste:
+
+```text
+sk-or-v1-...
+```
+
+Provide two storage options:
+
+### Remember on this device
+Store the key in:
+
+```javascript
+localStorage
+```
+
+### Session only
+Store the key only in JavaScript memory/session storage.
+
+Clearly explain:
+
+> Your API key remains inside this browser and is sent only to OpenRouter when making AI requests.
+
+Do NOT falsely call `localStorage` completely secure.
+
+Mask the key visually.
+
+Include:
+
+- Save
+- Test Connection
+- Remove Key
+- Show/Hide Key
+
+When connected display:
+
+```text
+● NEMOTRON CLOUD ONLINE
+```
+
+using an emerald animated status indicator.
+
+When no key exists display:
+
+```text
+○ CLOUD NOT CONNECTED
+```
+
+Clicking it should reopen the modal.
+
+---
+
+# 4. CREATIVE DIRECTION
+
+## Design Theme
+
+### **“Academic Prestige × Intelligent Glass × Living Knowledge”**
+
+Imagine a combination of:
+
+- an elite school library
+- a research laboratory
+- an astronomy observatory
+- an AI command centre
+- a premium academic journal
+- subtle Indian educational heritage
+
+Avoid:
+
+- childish school graphics
+- excessive gradients
+- neon cyberpunk
+- generic purple AI interfaces
+- excessive glass cards everywhere
+- cartoon UI
+- corporate dashboard clichés
+
+The experience should be **confident, mature, intelligent, cinematic and restrained**.
+
+---
+
+# 5. COLOR SYSTEM
+
+## Dark Scholarly Mode — Default
+
+### Primary Canvas
+
+```css
+#07101F
+#0B1120
+#0F172A
+```
+
+Use layered radial lighting rather than a simple flat gradient.
+
+### Jyoti Gold
+
+```css
+#FBBF24
+#F59E0B
+#D97706
+```
+
+Gold represents:
+
+> Jyoti — knowledge, illumination and intellectual discovery.
+
+Use it selectively.
+
+Do NOT make the whole interface yellow.
+
+### Intelligence Emerald
+
+```css
+#10B981
+#34D399
+```
+
+Use for:
+
+- AI online states
+- successful evaluation
+- mastery indicators
+- logic verification
+
+### Scholar Blue
+
+```css
+#38BDF8
+#2563EB
+```
+
+Use selectively for:
+
+- information
+- Student Portal
+- interactive academic elements
+
+### Teacher Violet
+
+```css
+#8B5CF6
+#A78BFA
+```
+
+Use subtly to distinguish Teacher Studio.
+
+---
+
+# 6. LIGHT MODE
+
+Create a sophisticated:
+
+# **Ivory Scholar Mode**
+
+Use:
+
+```css
+#F8FAFC
+#F5F1E8
+#FFFFFF
+#1E293B
+```
+
+Cards should resemble:
+
+- premium academic paper
+- translucent ivory surfaces
+- softly elevated stationery
+
+Theme changes must animate smoothly.
+
+Persist theme preference.
+
+---
+
+# 7. TYPOGRAPHY
+
+Recommended:
+
+### Display / Titles
+
+- Outfit
+- Plus Jakarta Sans
+
+### Body
+
+- Inter
+
+### Code
+
+- JetBrains Mono
+
+### Mathematical expressions
+
+Use KaTeX when available.
+
+The typography should have a clear editorial hierarchy.
+
+Example:
+
+```text
+11px   metadata / eyebrow
+13px   labels
+15px   body
+18px   card titles
+26px   section titles
+42px   workspace hero
+64px   welcome statement on large screens
+```
+
+Use restrained letter spacing and high readability.
+
+---
+
+# 8. VISUAL SIGNATURE
+
+Create a distinctive animated background motif called:
+
+# **The Jyoti Knowledge Field**
+
+Behind the main application canvas, render extremely subtle animated elements such as:
+
+- drifting mathematical symbols
+- tiny particles
+- constellation-like connecting lines
+- geometric knowledge nodes
+- faint Devanagari glyph fragments
+- formulas
+- coordinates
+- orbital arcs
+
+They should move slowly and never reduce readability.
+
+At the centre of the opening state, create a subtle glowing **Jyoti Orb**.
+
+The orb represents Medhavi intelligence.
+
+When idle:
+- breathing glow
+
+When thinking:
+- rotating rings
+- subtle pulses
+
+When responding:
+- light propagates outward
+
+When completed:
+- briefly transitions emerald/gold
+
+Use lightweight CSS/SVG/canvas techniques.
+
+Do NOT create distracting animation.
+
+---
+
+# 9. PAGE ARCHITECTURE
+
+The desktop interface should use a sophisticated three-region layout:
+
+```text
+┌─────────────────────────────────────────────────────────┐
+│                     GLOBAL HEADER                       │
+├─────────────┬─────────────────────────────┬─────────────┤
+│             │                             │             │
+│   TOOL      │      INTELLIGENCE           │   CONTEXT   │
+│   DOCK      │      WORKSPACE              │   PANEL     │
+│             │                             │             │
+│             │                             │             │
+└─────────────┴─────────────────────────────┴─────────────┘
+```
+
+The right Context Panel may collapse automatically when screen width becomes constrained.
+
+Tablet/mobile should intelligently transform into:
+
+- top navigation
+- central workspace
+- slide-over tool drawer
+- slide-over context panel
+
+Do not merely shrink the desktop interface.
+
+---
+
+# 10. GLOBAL HEADER
+
+Create a sophisticated sticky translucent navigation bar.
+
+## LEFT — BRAND
+
+Create a tasteful crest-like geometric emblem using SVG/CSS.
+
+Beside it show:
+
+### JAIPURIA  
+**MEDHAVI**
+
+Then:
+
+```text
+मेधावी
+```
+
+Small line:
+
+```text
+Tamso Ma Jyotirgamaya
+```
+
+Secondary technical metadata:
+
+```text
+NVIDIA NEMOTRON 3.5 SUPER VL
+```
+
+---
+
+# 11. PERSONA SWITCHER
+
+Place the main persona selector prominently in the navigation:
+
+```text
+┌─────────────────────────────────────┐
+│ 🎓 STUDENT PORTAL │ 👩‍🏫 TEACHER STUDIO │
+└─────────────────────────────────────┘
+```
+
+This must feel like switching entire operating systems, not just changing text.
+
+Animate:
+
+- accent colour
+- workspace heading
+- tools
+- quick actions
+- helper text
+- suggested prompts
+- contextual panel
+- AI system prompt
+
+Student mode:
+
+```text
+Scholar Blue + Gold
+```
+
+Teacher mode:
+
+```text
+Teacher Violet + Gold
+```
+
+---
+
+# 12. GLOBAL ACADEMIC CONTEXT SELECTORS
+
+Include elegant selectors for:
+
+## Class
+
+```text
+Class 6
+Class 7
+Class 8
+Class 9
+Class 10
+Class 11
+Class 12
+```
+
+Avoid combining 9–10 and 11–12 if possible because instructional depth differs significantly.
+
+## Subject
+
+```text
+Mathematics
+Physics
+Chemistry
+Biology
+Computer Science & AI
+English
+Hindi — हिन्दी
+Sanskrit — संस्कृतम्
+History
+Geography
+Political Science & Civics
+Economics
+General Knowledge
+Current Affairs
+Interdisciplinary
+```
+
+Selections immediately affect prompts and workflow suggestions.
+
+---
+
+# 13. MEDHAVI SPECS
+
+Add:
+
+# ⚙ Medhavi Specifications
+
+Opening this launches a premium side-sheet/modal.
+
+Users may enter custom instructions such as:
+
+```text
+Current CBSE chapter:
+Triangles
+
+School examination pattern:
+20 marks, 45 minutes
+
+Olympiad rules:
++2 correct
+-1 incorrect
+
+Preferred answer structure:
+Definition → Explanation → Example → Exam Tip
+```
+
+Allow creation of separate specification blocks:
+
+- School Rules
+- Current Syllabus
+- Examination Pattern
+- Competition Rules
+- Teacher Instructions
+- Student Learning Goals
+
+Persist locally.
+
+Include:
+
+```text
+Context Active
+```
+
+indicator whenever specifications exist.
+
+---
+
+# 14. LEFT INTELLIGENCE DOCK
+
+Create a visually elegant collapsible navigation dock.
+
+## STUDENT MODE
+
+Sections:
+
+```text
+NEW SESSION
+
+LEARN
+• Socratic Solver
+• Explain a Concept
+• Diagram Decoder
+• Homework Companion
+
+PRACTICE
+• Olympiad Arena
+• Rapid Quiz
+• Exam Revision
+• Flash Cards
+
+CREATE
+• Code Lab
+• Language Lab
+• Project Brainstorm
+
+MY WORK
+• Saved Sessions
+• Recent Chats
+```
+
+---
+
+# 15. TEACHER MODE DOCK
+
+```text
+NEW WORKSPACE
+
+PLAN
+• Lesson Architect
+• Learning Objectives
+• Classroom Activities
+
+ASSESS
+• Question Paper Studio
+• Rubric Builder
+• Answer Evaluator
+• Quiz Generator
+
+COMMUNICATE
+• Parent Circular
+• Event Notice
+• Student Feedback
+
+ACADEMIC TOOLS
+• Bloom's Taxonomy
+• Differentiation Assistant
+• Competency Mapper
+
+MY WORK
+• Saved Sessions
+• Recent Documents
+```
+
+The selected tool should have a soft luminous indicator.
+
+---
+
+# 16. MAIN EMPTY STATE
+
+Do NOT start with a boring blank chat box.
+
+Create an editorial welcome experience.
+
+Example:
+
+```text
+GOOD EVENING, SCHOLAR.
+
+What shall we illuminate today?
+```
+
+Teacher Mode:
+
+```text
+GOOD EVENING, EDUCATOR.
+
+What shall we design for tomorrow's classroom?
+```
+
+Under it show context:
+
+```text
+Class 7 • Mathematics • Student Portal
+```
+
+Then render a beautiful **Bento Workflow Grid**.
+
+---
+
+# 17. STUDENT WORKFLOW CARDS
+
+## CARD 01 — SOCRATIC SOLVER
+
+Title:
+
+# Think With Medhavi
+
+Subtitle:
+
+```text
+Don't just get the answer.
+Understand why the answer works.
+```
+
+Input:
+
+```text
+Paste or describe your problem...
+```
+
+Actions:
+
+```text
+Solve Together
+Upload Question
+```
+
+AI behaviour:
+
+1. Understand the problem.
+2. Identify the concept.
+3. Give a hint before the solution when pedagogically appropriate.
+4. Explain steps clearly.
+5. Verify the final result.
+6. Highlight common mistakes.
+7. End with:
+
+```text
+💡 MEDHAVI CONCEPT CHECK
+```
+
+and one follow-up question.
+
+---
+
+# 18. STUDENT CARD — OLYMPIAD ARENA
+
+Create a visually exciting:
+
+# ⚡ Olympiad Arena
+
+Mini form:
+
+```text
+Topic
+Difficulty
+Question Count
+Timer On/Off
+```
+
+Difficulty:
+
+```text
+Foundation
+Competitive
+Olympiad
+Extreme Logic
+```
+
+Default:
+
+```text
+5 questions
+```
+
+Scoring:
+
+```text
+Correct: +2
+Incorrect: -1
+Skipped: 0
+```
+
+The AI first generates structured quiz data.
+
+Render each question as an actual interactive MCQ interface rather than plain text.
+
+After answering:
+
+- lock selection
+- indicate correct answer
+- show explanation
+- update score
+- animate progress ring
+
+Final results screen:
+
+```text
+MEDHAVI PERFORMANCE REPORT
+
+Score: 7 / 10
+Accuracy: 80%
+Concept Mastery: Strong
+Speed: Excellent
+Needs Review: Algebraic Manipulation
+```
+
+Provide:
+
+```text
+Challenge Me Again
+Review Mistakes
+Increase Difficulty
+```
+
+---
+
+# 19. STUDENT CARD — FIVE-MINUTE REVISION
+
+Title:
+
+# 5-Minute Mastery
+
+Input:
+
+```text
+Chapter / Topic / Paste Notes
+```
+
+Output format:
+
+### Chapter Snapshot
+
+### Essential Concepts
+
+### Formula / Definition Vault
+
+### Common Exam Traps
+
+### Mnemonic Memory Hooks
+
+### 3 High-Probability Questions
+
+### 60-Second Final Recall
+
+Create visually differentiated content panels.
+
+---
+
+# 20. STUDENT CARD — LANGUAGE & CODE LAB
+
+Create tabs:
+
+```text
+</> CODE
+A ENGLISH
+ह HINDI
+सं SANSKRIT
+```
+
+### Code Mode
+
+Support:
+
+- Python
+- HTML
+- CSS
+- JavaScript
+
+Actions:
+
+```text
+Debug
+Explain
+Improve
+Predict Output
+Create Practice Challenge
+```
+
+Code explanations should include:
+
+```text
+WHAT THE CODE DOES
+WHY IT WORKS
+BUG FOUND
+CORRECTED VERSION
+CONCEPT TO REMEMBER
+```
+
+### Hindi Mode
+
+Support:
+
+- निबंध
+- पत्र
+- भाषण
+- कहानी
+- व्याकरण
+- दोहे
+- formal connectors
+
+### Sanskrit Mode
+
+Support:
+
+- paragraph composition
+- translation
+- विभक्ति
+- धातु
+- शब्दरूप
+- sentence grammar breakdown
+
+---
+
+# 21. TEACHER CARD — QUESTION PAPER STUDIO
+
+Create a polished mini-builder.
+
+Inputs:
+
+### Topic / Chapter
+
+### Total Marks
+
+```text
+10
+20
+40
+50
+80
+Custom
+```
+
+### Duration
+
+### Difficulty Distribution
+
+Use sliders:
+
+```text
+Easy       30%
+Moderate   50%
+HOTS       20%
+```
+
+### Question Types
+
+Checkboxes:
+
+```text
+MCQ
+Very Short Answer
+Short Answer
+Long Answer
+Case Study
+Assertion–Reason
+Competency-Based
+Diagram-Based
+Numerical
+```
+
+### Bloom Distribution
+
+```text
+Remember
+Understand
+Apply
+Analyse
+Evaluate
+Create
+```
+
+Generate:
+
+# STUDENT QUESTION PAPER
+
+with clean printable formatting.
+
+Then separately:
+
+# TEACHER ANSWER KEY
+
+and:
+
+# MARKING SCHEME
+
+Include competency mapping.
+
+Provide:
+
+```text
+Print Paper
+Print Answer Key
+Regenerate Section
+Increase HOTS
+Simplify Paper
+```
+
+---
+
+# 22. TEACHER CARD — LESSON ARCHITECT
+
+Title:
+
+# 40-Minute Classroom Architect
+
+Inputs:
+
+```text
+Topic
+Class
+Prior Knowledge
+Learning Level
+Available Resources
+```
+
+Generate:
+
+### Learning Outcomes
+
+### Competencies
+
+### 0–5 min — Curiosity Hook
+
+### 5–12 min — Prior Knowledge Activation
+
+### 12–25 min — Core Teaching
+
+### 25–32 min — Student Activity
+
+### 32–37 min — Real-World Application
+
+### 37–40 min — Exit Ticket
+
+Also show:
+
+```text
+Teacher Questions
+Expected Student Responses
+Misconceptions to Watch
+Differentiation Strategy
+Home Extension
+```
+
+Align with NEP-2020 and competency-based teaching.
+
+---
+
+# 23. TEACHER CARD — ANSWER EVALUATOR
+
+Allow:
+
+### Question
+
+### Maximum Marks
+
+### Optional Expected Answer
+
+### Student Response
+
+plus:
+
+```text
+📎 Upload handwritten response
+```
+
+AI evaluates using clear criteria.
+
+Output:
+
+# MEDHAVI EVALUATION
+
+```text
+Suggested Score: 7 / 10
+Confidence: High
+```
+
+Then:
+
+### What the Student Did Well
+
+### Missing Concepts
+
+### Logical / Factual Errors
+
+### Presentation Feedback
+
+### How to Improve to Full Marks
+
+### Suggested Teacher Comment
+
+Show a visual rubric.
+
+Example:
+
+| Criterion | Score |
+|---|---:|
+| Concept Accuracy | 3/4 |
+| Reasoning | 2/3 |
+| Terminology | 1/1 |
+| Presentation | 1/2 |
+
+Never present AI grading as infallible.
+
+Include:
+
+> Teacher review recommended before marks are finalized.
+
+---
+
+# 24. TEACHER CARD — BILINGUAL COMMUNICATION
+
+Generate school-quality:
+
+- parent circulars
+- event notices
+- competition rules
+- reminders
+- consent forms
+- announcements
+- field-trip notices
+
+Output:
+
+```text
+ENGLISH
+```
+
+and:
+
+```text
+हिन्दी
+```
+
+Tone:
+
+- dignified
+- warm
+- clear
+- concise
+- school-appropriate
+
+Allow:
+
+```text
+Formal
+Warm
+Urgent
+Celebratory
+```
+
+---
+
+# 25. CHAT / INTELLIGENCE CANVAS
+
+Once a workflow begins, transition elegantly from Bento mode into the conversation canvas.
+
+Do not simply hide everything abruptly.
+
+Use:
+
+- fade
+- scale
+- subtle depth transition
+
+Conversation messages must feel editorial rather than like WhatsApp bubbles.
+
+Use wide readable blocks.
+
+---
+
+# 26. AI RESPONSE ARCHITECTURE
+
+Each Medhavi response should include a compact top metadata bar:
+
+```text
+MEDHAVI
+NEMOTRON SUPER VL
+• 4.8s
+• Class 7
+• Mathematics
+```
+
+Then render:
+
+- headings
+- tables
+- bullets
+- equations
+- callouts
+- code
+- diagrams where possible
+
+Provide actions:
+
+```text
+Copy
+Save
+Print
+Continue
+Simplify
+Go Deeper
+Create Quiz
+```
+
+Contextual actions change depending on role and response type.
+
+---
+
+# 27. REASONING / LOGIC DRAWER
+
+Do **not** expose or request private hidden chain-of-thought.
+
+Instead provide a collapsible:
+
+# 🧠 MEDHAVI LOGIC SUMMARY
+
+This may show concise, educational, verifiable reasoning such as:
+
+```text
+1. Identified the relevant theorem.
+2. Substituted the known values.
+3. Simplified the equation.
+4. Checked the result against the original condition.
+```
+
+For mathematical questions it may provide step-by-step solution work that is appropriate to show to a student.
+
+For complex AI reasoning, show a **concise reasoning summary**, not private internal deliberation.
+
+Use labels such as:
+
+```text
+Approach
+Key Steps
+Verification
+```
+
+Never display hidden model chain-of-thought.
+
+---
+
+# 28. MATHEMATICS SUPPORT
+
+Render LaTeX beautifully.
+
+Support inline expressions:
+
+```text
+\( x^2 + y^2 = r^2 \)
+```
+
+and display equations:
+
+```text
+\[
+E = mc^2
+\]
+```
+
+Use KaTeX if available.
+
+Include a copy-equation action.
+
+---
+
+# 29. MULTIMODAL INPUT DOCK
+
+Create a floating composer at the bottom of the workspace.
+
+It should feel closer to an intelligent research instrument than a normal text input.
+
+Include:
+
+```text
+📎 Attach
+```
+
+Allow:
+
+- PNG
+- JPG
+- JPEG
+- WEBP
+
+Display attachment preview.
+
+Allow removal before sending.
+
+Convert images to Base64 Data URLs for multimodal OpenRouter requests.
+
+Use correct multimodal message formatting supported by the API/model.
+
+Examples:
+
+- photographed equation
+- geometry diagram
+- science diagram
+- handwritten answer
+- notebook page
+- textbook problem
+
+---
+
+# 30. INTELLIGENCE MODES
+
+Inside the composer provide:
+
+```text
+⚡ QUICK
+🧠 DEEP LOGIC
+🎓 TEACH ME
+```
+
+### QUICK
+Concise answer.
+
+### DEEP LOGIC
+Detailed analysis, verification and edge-case checking.
+
+### TEACH ME
+Socratic explanations with examples and concept checks.
+
+Teacher mode may instead use:
+
+```text
+⚡ QUICK
+🧠 DEEP ANALYSIS
+📚 PEDAGOGICAL
+```
+
+---
+
+# 31. DYNAMIC PROMPT ENGINE
+
+Construct the system prompt dynamically.
+
+Use something conceptually similar to:
+
+```javascript
+function buildSystemPrompt() {
+  return `
+You are Jaipuria Medhavi (मेधावी), a school-branded academic intelligence assistant designed for Seth M.R. Jaipuria School.
+
+MOTTO:
+"Tamso Ma Jyotirgamaya" — Lead me from darkness to light.
+
+CURRENT CONTEXT:
+Role: ${state.role}
+Class: ${state.grade}
+Subject: ${state.subject}
+Response Mode: ${state.intelligenceMode}
+
+CUSTOM SCHOOL CONTEXT:
+${state.customSpecs || "No additional specifications supplied."}
+
+CORE PRINCIPLES:
+- Be accurate, rigorous and educational.
+- Adapt vocabulary and complexity to the selected class.
+- Explain why concepts work, not merely what the answer is.
+- Never fabricate certainty.
+- Clearly flag uncertainty where appropriate.
+- Verify calculations before presenting final results.
+- Prefer structured Markdown.
+- Use examples appropriate for Indian school students.
+- Preserve mathematical notation clearly.
+- For current affairs, warn when live/current information may require verification.
+
+STUDENT MODE:
+- Behave like a patient, intellectually demanding mentor.
+- Promote understanding rather than answer-copying.
+- Use progressive hints when appropriate.
+- Explain difficult vocabulary.
+- Identify misconceptions.
+- End substantial teaching responses with:
+  "💡 Medhavi Concept Check"
+  followed by one useful question.
+
+TEACHER MODE:
+- Behave like a senior academic planning partner.
+- Structure material professionally.
+- Incorporate competency-based learning.
+- Apply Bloom's Taxonomy where useful.
+- Align lesson design with NEP-2020 principles when relevant.
+- Provide clear rubrics and measurable learning outcomes.
+- Treat AI-generated grading as advisory and subject to teacher review.
+
+REASONING:
+Do not reveal hidden chain-of-thought.
+When useful, provide a concise, educational "Medhavi Logic Summary" containing only the reasoning steps appropriate to show the user.
+
+LANGUAGE:
+Respond in the requested language.
+For Hindi and Sanskrit, use correct native script unless transliteration is requested.
+`;
+}
+```
+
+Add workflow-specific instructions dynamically.
+
+Do NOT rely on one enormous static system message for every task.
+
+---
+
+# 32. STRUCTURED TOOL OUTPUTS
+
+For workflows requiring UI interactions, instruct the model to return strict JSON inside identifiable markers.
+
+Example quiz:
+
+```text
+<medhavi_quiz>
+{
+  "title": "Algebra Challenge",
+  "questions": [
+    {
+      "question": "...",
+      "options": ["A", "B", "C", "D"],
+      "correctIndex": 2,
+      "explanation": "..."
+    }
+  ]
+}
+</medhavi_quiz>
+```
+
+Parse the JSON and render a real quiz interface.
+
+Do not display raw JSON unless parsing fails.
+
+Use the same philosophy for:
+
+- grading rubrics
+- exam builders
+- flashcards
+- learning plans
+
+---
+
+# 33. SMART RIGHT CONTEXT PANEL
+
+On desktop include an optional contextual intelligence panel.
+
+Content changes dynamically.
+
+Example during Student Math:
+
+```text
+CURRENT CONTEXT
+
+Class 7
+Mathematics
+Algebra
+
+SESSION MASTERY
+████████░░ 78%
+
+KEY CONCEPTS
+• Variables
+• Expressions
+• Substitution
+
+AI STATUS
+● Nemotron Online
+```
+
+During Teacher mode:
+
+```text
+DOCUMENT CONTEXT
+
+Class 8
+Science
+40 Marks
+
+BLOOM DISTRIBUTION
+Remember      15%
+Understand    25%
+Apply         30%
+Analyse       20%
+Evaluate      10%
+```
+
+This panel should feel useful, not decorative.
+
+---
+
+# 34. SAVED SESSION SYSTEM
+
+Store local session history.
+
+Each session should contain:
+
+```javascript
+{
+  id,
+  title,
+  timestamp,
+  role,
+  classLevel,
+  subject,
+  messages
+}
+```
+
+Generate meaningful session names.
+
+Example:
+
+```text
+Pythagoras Olympiad Practice
+Chemical Reactions Revision
+Class 8 Force Question Paper
+Parent Circular — Sports Day
+```
+
+Provide:
+
+- reopen
+- rename
+- delete
+- clear all
+
+Persist using localStorage.
+
+---
+
+# 35. COMMAND PALETTE
+
+Add:
+
+```text
+⌘ K
+```
+
+or:
+
+```text
+Ctrl + K
+```
+
+to open:
+
+# MEDHAVI COMMAND
+
+Search actions such as:
+
+```text
+Solve a problem
+Generate quiz
+Create revision sheet
+Create question paper
+Plan lesson
+Evaluate answer
+Draft circular
+Change class
+Change subject
+Toggle theme
+Open API settings
+```
+
+This makes the product feel like a sophisticated professional application.
+
+---
+
+# 36. KEYBOARD SHORTCUTS
+
+Implement useful shortcuts:
+
+```text
+⌘/Ctrl + K → Command Palette
+⌘/Ctrl + Enter → Send
+Esc → Close modal
+⌘/Ctrl + Shift + N → New Session
+```
+
+Show shortcuts subtly in menus.
+
+---
+
+# 37. RESPONSE STATES
+
+Design intentional AI states.
+
+### Idle
+
+```text
+Ready to illuminate.
+```
+
+### Preparing
+
+```text
+Understanding your question…
+```
+
+### Analysing
+
+```text
+Mapping concepts…
+```
+
+### Verifying
+
+```text
+Checking logic…
+```
+
+### Finalising
+
+```text
+Preparing explanation…
+```
+
+Animate the Jyoti Orb accordingly.
+
+Do not use cheesy loading spinners.
+
+Use an elegant reasoning status animation.
+
+---
+
+# 38. ONBOARDING
+
+On first launch only, show a 3-step lightweight onboarding sequence.
+
+### 01
+```text
+Welcome to Medhavi
+Your intelligent academic workspace.
+```
+
+### 02
+```text
+Choose your mode
+Student Portal or Teacher Studio.
+```
+
+### 03
+```text
+Connect Nemotron
+Add your OpenRouter API key.
+```
+
+Provide:
+
+```text
+Start Exploring
+```
+
+Persist that onboarding was completed.
+
+---
+
+# 39. RESPONSIVE DESIGN
+
+## Desktop
+
+Three-region workspace.
+
+## Tablet
+
+Collapse right panel.
+
+Sidebar becomes narrower or drawer-based.
+
+## Mobile
+
+Use:
+
+- compact header
+- bottom navigation / drawer
+- full-width workspace
+- touch-friendly cards
+- fixed composer
+- responsive modals
+
+Cards must never become tiny desktop cards squeezed into a narrow viewport.
+
+Recompose the experience appropriately.
+
+---
+
+# 40. ACCESSIBILITY
+
+Target WCAG-friendly usability.
+
+Include:
+
+- semantic buttons
+- keyboard navigation
+- proper labels
+- visible focus states
+- `aria-label`
+- `aria-live` for AI response status
+- sufficient colour contrast
+- reduced-motion support
+
+Respect:
+
+```css
+@media (prefers-reduced-motion: reduce)
+```
+
+---
+
+# 41. PRINT EXPERIENCE
+
+Create professional print CSS.
+
+When printing a worksheet/question paper:
+
+Remove:
+
+- app navigation
+- sidebar
+- composer
+- buttons
+- background effects
+
+Print:
+
+- school title
+- document title
+- class
+- subject
+- marks
+- duration
+- content
+- page numbers if practical
+
+Question papers should resemble a professionally typeset academic examination.
+
+---
+
+# 42. MICRO-INTERACTIONS
+
+Use refined interactions throughout:
+
+```css
+transition:
+transform 250ms cubic-bezier(.2,.8,.2,1),
+border-color 250ms ease,
+box-shadow 250ms ease,
+background 250ms ease;
+```
+
+Cards may:
+
+```css
+transform: translateY(-3px);
+```
+
+on hover.
+
+Buttons should have tactile press states.
+
+Use subtle magnetic or glow effects only on major primary interactions.
+
+Do NOT animate every element.
+
+---
+
+# 43. VISUAL DETAIL REQUIREMENTS
+
+Include tasteful details such as:
+
+- tiny section labels
+- thin gold dividers
+- glowing active indicators
+- animated status dots
+- progress arcs
+- elegant empty states
+- refined tooltips
+- translucent command palette
+- precision shadows
+- subtle grid lines
+- soft light blooms
+- tasteful noise/grain using CSS
+- miniature academic metadata
+
+The UI should reward closer inspection.
+
+---
+
+# 44. ERROR EXPERIENCE
+
+Never use:
+
+```javascript
+alert()
+```
+
+for normal errors.
+
+Create elegant toast notifications.
+
+Examples:
+
+```text
+Unable to reach Nemotron.
+Check your connection and try again.
+```
+
+```text
+Your OpenRouter key appears invalid.
+```
+
+```text
+Image size is too large.
+Please upload an image under 8 MB.
+```
+
+Include Retry where useful.
+
+---
+
+# 45. SAFETY & EDUCATIONAL INTEGRITY
+
+Student-facing outputs should encourage learning.
+
+Do not automatically facilitate cheating.
+
+For obvious live-test requests, favour:
+
+- conceptual hints
+- guided solving
+- explanation
+
+rather than blindly producing answers when educational guidance is more appropriate.
+
+Teacher grading should always be positioned as:
+
+```text
+AI-assisted recommendation
+```
+
+and not unquestionable final assessment.
+
+---
+
+# 46. CURRENT AFFAIRS
+
+Because model knowledge may not always be current, when handling:
+
+```text
+General Knowledge & Current Affairs
+```
+
+the assistant should clearly distinguish:
+
+- established knowledge
+- possibly time-sensitive information
+
+Do not invent current facts.
+
+If real-time web browsing is unavailable, say so naturally.
+
+---
+
+# 47. DESIGN QUALITY BAR
+
+The final interface should visually feel comparable in polish to products from companies such as:
+
+- Linear
+- Notion
+- Perplexity
+- Arc
+- Raycast
+- Vercel
+- Apple
+- Anthropic
+- OpenAI
+
+but must NOT copy their layouts.
+
+Create a distinct visual language around:
+
+# **Jyoti + Scholarship + Intelligence**
+
+---
+
+# 48. DO NOT BUILD
+
+Avoid:
+
+❌ Generic Bootstrap dashboard  
+❌ giant left sidebar with dozens of icons  
+❌ huge purple gradients  
+❌ cartoon robot mascot  
+❌ random floating blobs  
+❌ cheap glassmorphism everywhere  
+❌ oversized rounded cards everywhere  
+❌ plain ChatGPT clone  
+❌ excessive emojis  
+❌ excessive neon  
+❌ useless graphs  
+❌ fake analytics  
+❌ placeholder UI  
+❌ non-functional buttons  
+❌ lorem ipsum  
+❌ broken mobile layout  
+
+Every visible major control must work.
+
+---
+
+# 49. CODE QUALITY
+
+Even within one file, structure JavaScript clearly.
+
+Recommended architecture:
+
+```javascript
+const state = {};
+const storage = {};
+const ui = {};
+const api = {};
+const workflows = {};
+const renderer = {};
+const quizEngine = {};
+const multimodal = {};
+```
+
+or equivalent organized modules/functions.
+
+Include comments for major sections.
+
+Avoid unnecessary global variables.
+
+Escape/sanitize AI-generated HTML.
+
+Never inject raw untrusted model output directly into `innerHTML`.
+
+---
+
+# 50. INITIAL SAMPLE PROMPTS
+
+Student Mode:
+
+```text
+Explain why the square root of 9 is 3.
+```
+
+```text
+Challenge me with Class 7 algebra Olympiad questions.
+```
+
+```text
+Turn Chapter 4 into a five-minute revision sheet.
+```
+
+```text
+Help me debug this Python loop.
+```
+
+Teacher Mode:
+
+```text
+Create a 40-mark Class 8 science paper on Force and Pressure.
+```
+
+```text
+Design a 40-minute lesson on photosynthesis.
+```
+
+```text
+Evaluate this student's answer out of 5 marks.
+```
+
+```text
+Draft a bilingual circular for the annual science exhibition.
+```
+
+---
+
+# 51. EMPTY-STATE COPY
+
+Student:
+
+```text
+WHERE CURIOSITY
+BECOMES CLARITY.
+
+Ask. Explore. Reason. Master.
+```
+
+Teacher:
+
+```text
+FROM PEDAGOGY
+TO POSSIBILITY.
+
+Plan. Assess. Adapt. Inspire.
+```
+
+Use these as large editorial statements within the welcome workspace.
+
+---
+
+# 52. SUBTLE BRAND MOMENTS
+
+Use the school motto sparingly.
+
+Examples:
+
+Loading:
+
+```text
+From question to illumination.
+```
+
+Empty workspace footer:
+
+```text
+तमसो मा ज्योतिर्गमय
+```
+
+Success state:
+
+```text
+Another concept illuminated.
+```
+
+Do not repeat branding excessively.
+
+---
+
+# 53. FIRST-RUN DEMO MODE
+
+If no API key is entered, the interface should still be explorable.
+
+Allow all menus, workflows and forms to work.
+
+When AI generation is attempted, show a refined connection prompt:
+
+```text
+Connect Nemotron Cloud to illuminate this request.
+```
+
+Button:
+
+```text
+Connect OpenRouter
+```
+
+This means the application never looks broken during demonstrations.
+
+---
+
+# 54. PERFORMANCE
+
+Keep the experience responsive.
+
+Avoid enormous JS dependencies.
+
+Compress/rescale images client-side before API submission where practical.
+
+Use efficient event delegation.
+
+Avoid continuous high-cost canvas rendering.
+
+Animations should remain smooth on average laptops and tablets.
+
+---
+
+# 55. FINAL ACCEPTANCE CHECKLIST
+
+Before finishing, verify that ALL of these work:
+
+- Student / Teacher switching
+- class selector
+- subject selector
+- dark/light theme
+- API key modal
+- API key persistence
+- connection indicator
+- Medhavi Specs
+- custom instructions persistence
+- Student Bento actions
+- Teacher Bento actions
+- AI conversation
+- conversation continuation
+- image upload
+- attachment preview
+- multimodal request
+- Markdown rendering
+- syntax highlighting
+- mathematical formatting
+- copy response
+- save session
+- reopen session
+- delete session
+- clear workspace
+- quiz generation
+- interactive scoring
+- negative marking
+- answer explanations
+- lesson generation
+- question-paper generation
+- grading workflow
+- bilingual notice workflow
+- print mode
+- command palette
+- keyboard shortcuts
+- loading states
+- toast errors
+- mobile layout
+- tablet layout
+- accessibility
+- reduced-motion handling
+
+No major button should be decorative-only.
+
+---
+
+# 56. FINAL OUTPUT REQUIREMENT
+
+Return the **complete finished `index.html`**.
+
+Do not give:
+
+- pseudocode
+- partial snippets
+- wireframes
+- explanations instead of implementation
+- a simplified demo
+- multiple separate files
+
+Do not ask follow-up questions.
+
+Make intelligent product decisions yourself wherever something is unspecified.
+
+The output should be immediately usable after saving as:
+
+```text
+index.html
+```
+
+The application should look and behave as though a world-class education technology design team spent weeks refining it.
+
+---
+
+# FINAL CREATIVE DIRECTIVE
+
+Do not merely satisfy the specification.
+
+**Interpret it.**
+
+Push typography, spatial composition, interaction design, hierarchy, animation and academic storytelling further than a conventional dashboard.
+
+The emotional progression of the interface should be:
+
+```text
+CURIOSITY
+    ↓
+DISCOVERY
+    ↓
+REASONING
+    ↓
+UNDERSTANDING
+    ↓
+MASTERY
+```
+
+The visual metaphor throughout the experience is:
+
+# **KNOWLEDGE BECOMING LIGHT**
+
+The user should leave with the feeling:
+
+> **“This does not look like school software. This looks like the future of learning.”**

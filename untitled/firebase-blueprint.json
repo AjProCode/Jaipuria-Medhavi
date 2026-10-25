@@ -1,0 +1,255 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Scholar or educator academic profile settings and preferences.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID matching document ID.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the student or educator.",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "persona": {
+          "type": "string",
+          "description": "Selected workspace persona.",
+          "enum": ["student", "teacher"]
+        },
+        "grade": {
+          "type": "string",
+          "description": "Selected academic class.",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "subject": {
+          "type": "string",
+          "description": "Selected academic subject.",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "theme": {
+          "type": "string",
+          "description": "Selected UI theme.",
+          "enum": ["dark", "light"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": ["uid", "displayName", "persona", "grade", "subject", "theme", "createdAt", "updatedAt"]
+    },
+    "AcademicSession": {
+      "title": "AcademicSession",
+      "description": "Saved Medhavi scholarly conversation or pedagogical studio document.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique session identifier.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner UID.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "title": {
+          "type": "string",
+          "description": "Session title.",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "role": {
+          "type": "string",
+          "description": "Persona under which the session was created.",
+          "enum": ["student", "teacher"]
+        },
+        "classLevel": {
+          "type": "string",
+          "description": "Academic class level.",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "subject": {
+          "type": "string",
+          "description": "Academic subject.",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "payload": {
+          "type": "string",
+          "description": "Serialized messages and structured outputs bounded to 200KB.",
+          "minLength": 2,
+          "maxLength": 200000
+        },
+        "reasoningTokensTotal": {
+          "type": "number",
+          "description": "Total reasoning tokens recorded in this session."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": ["id", "userId", "title", "role", "classLevel", "subject", "payload", "reasoningTokensTotal", "createdAt", "updatedAt"]
+    },
+    "CustomSpec": {
+      "title": "CustomSpec",
+      "description": "Custom Medhavi specification block (syllabus, exam pattern, Olympiad rules).",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Specification ID.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner UID.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "category": {
+          "type": "string",
+          "description": "Specification block category.",
+          "enum": ["School Rules", "Current Syllabus", "Examination Pattern", "Competition Rules", "Teacher Instructions", "Student Learning Goals"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the specification block.",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "content": {
+          "type": "string",
+          "description": "Specification instructions text.",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Whether this specification is active in the prompt engine."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": ["id", "userId", "category", "title", "content", "active", "createdAt", "updatedAt"]
+    },
+    "QuizAttempt": {
+      "title": "QuizAttempt",
+      "description": "Olympiad Arena performance record.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Attempt ID.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner UID.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "topic": {
+          "type": "string",
+          "description": "Quiz topic.",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "subject": {
+          "type": "string",
+          "description": "Academic subject.",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "classLevel": {
+          "type": "string",
+          "description": "Academic class level.",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "difficulty": {
+          "type": "string",
+          "description": "Selected difficulty tier.",
+          "enum": ["Foundation", "Competitive", "Olympiad", "Extreme Logic"]
+        },
+        "score": {
+          "type": "number",
+          "description": "Final score earned with +2/-1 marking."
+        },
+        "maxScore": {
+          "type": "number",
+          "description": "Maximum possible score."
+        },
+        "accuracy": {
+          "type": "number",
+          "description": "Accuracy percentage (0 to 100)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of completion."
+        }
+      },
+      "required": ["id", "userId", "topic", "subject", "classLevel", "difficulty", "score", "maxScore", "accuracy", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Stores user profile preferences for Jaipuria Medhavi."
+    },
+    "/users/{userId}/sessions/{sessionId}": {
+      "schema": { "$ref": "#/entities/AcademicSession" },
+      "description": "Stores saved scholarly sessions and teacher documents."
+    },
+    "/users/{userId}/specs/{specId}": {
+      "schema": { "$ref": "#/entities/CustomSpec" },
+      "description": "Stores custom school specifications and syllabus rules."
+    },
+    "/users/{userId}/quizAttempts/{attemptId}": {
+      "schema": { "$ref": "#/entities/QuizAttempt" },
+      "description": "Stores Olympiad Arena quiz attempts and mastery metrics."
+    }
+  }
+}
